@@ -1,0 +1,85 @@
+{% extends 'base/base.html' %}
+{% block title %} DETALLE-POKEMON {% endblock %}
+{% block content %}
+<div id="verE">
+ <h3>Información del pokemon</h3>
+ <h4>Tiempo de carga: <strong>{{ tiempo_carga }}</strong></h4>
+<form method="post">
+	{% csrf_token %}
+	<div class="row">
+        <div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+				<label for="#">Nombre del pokemon: </label>
+				<input  value="{{ object.name|upper }}">
+			</div>
+		</div>
+        <div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+				<img src="{{ object.sprites.back_default }}"  width="200" height="200">
+                <img src="{{ object.sprites.front_default }}"  width="200" height="200">
+			</div>
+		</div>
+        <div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+                <img src="{{ object.sprites.back_shiny }}"  width="200" height="200">
+                <img src="{{ object.sprites.front_shiny }}"  width="200" height="200">
+			</div>
+		</div>
+        <div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+				<label for="#">Experiencia: </label>
+				<input  value="{{ object.base_experience }}">
+			</div>
+		</div>
+        <div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+				<label for="#">Peso: </label>
+				<input  value="{{ object.weight }}">
+			</div>
+		</div>
+        <div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+				<label for="#">Altura: </label>
+				<input  value="{{ object.height }}">
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+				<label for="#">Habilidades: </label>
+                {% for habilidad in object.abilities %}
+				    <input value="{{ habilidad.ability.name }}">
+                {% endfor %}
+			</div>
+		</div>
+        <div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+				<label for="#">Movimientos: </label>
+                {% for movimiento in object.moves %}
+				    <input value="{{ movimiento.move.name }}">
+                {% endfor %}
+			</div>
+		</div>
+        <div class="col-md-8 col-md-offset-0">
+            <div class="form-group">
+				<label for="#">Tipos: </label>
+                {% for idtipo in object.idtipos.values %}
+				    <input value="{{ idtipo.id.name }}">
+{#                    <a class="btn btn-warning" href="{% url 'pokemon_listartipofuncion' idtipo.id.id %}">Ver</a>#}
+                    <a class="btn btn-warning" href="{% url listar_tipo idtipo.id.id %}">Ver</a>
+                {% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-8 ">
+			<div class="form-group">
+                <a class="btn btn-info" href="javascript:history.back();">Regresar</a>
+			</div>
+		</div>
+</form>
+</div>
+{% endblock %}
+{% block extrajs %}
+    <script type="text/javascript">
+        $("#verE :input").prop("disabled", true);
+    </script>
+{% endblock %}

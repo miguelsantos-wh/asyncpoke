@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+{% block title %} LISTA-POKEMONES {% endblock %}
+{% block content %}
+<div id="verE">
+	<div class="row">
+        {% if pokemones %}
+            <h3>{{ titulo }}
+                {% if tipo %}
+                    - TIPO: <strong>{{ tipo }}</strong>
+                {% endif %}
+            </h3>
+            <h5>TIEMPO DE CARGA: <strong>{{ tiempo_carga }}</strong></h5>
+            <h5>CANTIDAD DE POKEMONES: <strong>{{ cantidad }}</strong></h5>
+        {% for pokemon in pokemones.values %}
+            <div class="col-6 col-sm-6">
+                <div class="form-group">
+                    <input  value="{{ pokemon.nombre|upper }}">
+                </div>
+                <div class="form-group">
+                    <img src="{{ pokemon.imagen }}"  width="100" height="100">
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-info" href="{% url detail_url pokemon.id %}">Ver pokemon</a>
+                </div>
+            </div>
+        {% endfor %}
+        {% else %}
+        <h1>No Hay Registros de Pokemones</h1>
+        {% endif %}
+	</div>
+</div>
+
+{% endblock %}
+{% block extrajs %}
+    <script type="text/javascript">
+        $("#verE :input").prop("disabled", true);
+    </script>
+{% endblock %}

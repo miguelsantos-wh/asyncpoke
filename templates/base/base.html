@@ -27,15 +27,33 @@
                          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                          <ul class="nav navbar-nav">
                              <li class="dropdown">
-                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pokemones F<span class="caret"></span></a>
+                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pokemones Normal<span class="caret"></span></a>
                                  <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{% url 'pokemon_listarfuncion' %}">Listar pokemones</a></li>
+                                    <li><a href="{% url 'pokemon_listarfuncion' %}">Listar pokemones Normal</a></li>
                                  </ul>
                              </li>
                              <li class="dropdown">
                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pokemones Async<span class="caret"></span></a>
                                  <ul class="dropdown-menu" role="menu">
                                     <li><a href="{% url 'pokemon_listarfuncion_async' %}">Listar pokemones Async</a></li>
+                                 </ul>
+                             </li>
+                             <li class="dropdown">
+                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pokemones Async Paralel<span class="caret"></span></a>
+                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{% url 'pokemon_listarfuncion_async_paralel' %}">Listar pokemones Async Paralel</a></li>
+                                 </ul>
+                             </li>
+                             <li class="dropdown">
+                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pokemones Async Aio<span class="caret"></span></a>
+                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{% url 'pokemon_listarfuncion_async_aio' %}">Listar pokemones Async Aio</a></li>
+                                 </ul>
+                             </li>
+                             <li class="dropdown">
+                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pokemones Async Aio Paralel<span class="caret"></span></a>
+                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{% url 'pokemon_listarfuncion_async_aio_paralel' %}">Listar pokemones Async Aio Paralel</a></li>
                                  </ul>
                              </li>
                          </ul>

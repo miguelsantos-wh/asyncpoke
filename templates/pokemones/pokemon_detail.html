@@ -2,7 +2,7 @@
 {% block title %} DETALLE-POKEMON {% endblock %}
 {% block content %}
 <div id="verE">
- <h3>Información del pokemon</h3>
+ <h3>{{ titulo }}</h3>
  <h4>Tiempo de carga: <strong>{{ tiempo_carga }}</strong></h4>
 <form method="post">
 	{% csrf_token %}

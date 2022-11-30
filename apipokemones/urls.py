@@ -6,6 +6,7 @@ from apipokemones.views.async_aio_paralel import pokemon_list_async_aio_paralel,
     pokemon_detail_async_aio_paralel
 from apipokemones.views.async_paralel import pokemon_list_async_paralel, pokemon_listtype_async_paralel, \
     pokemon_detail_async_paralel
+from apipokemones.views.multithreading import pokemon_list_mltthr, pokemon_detail_mltthr
 from apipokemones.views.normal import pokemon_list, pokemon_listtype, pokemon_detail
 
 urlpatterns = [
@@ -16,6 +17,7 @@ urlpatterns = [
     path('listar-async-aio/', pokemon_list_async_aio, name="pokemon_listarfuncion_async_aio"),
     path('listar-async-aio-paralel/', pokemon_list_async_aio_paralel,
          name="pokemon_listarfuncion_async_aio_paralel"),
+    path('listar-mltthr/', pokemon_list_mltthr, name="pokemon_listarfuncion_mltthr"),
 
     #   listar por tipo
     path('tipo/<int:id_tipo>/', pokemon_listtype, name="pokemon_listartipofuncion"),
@@ -34,6 +36,7 @@ urlpatterns = [
     path('pokemon-async-aio/<int:id_pokemon>/', pokemon_detail_async_aio, name="pokemon_detallefuncion_async_aio"),
     path('pokemon-async-aio-paralel/<int:id_pokemon>/', pokemon_detail_async_aio_paralel,
          name="pokemon_detallefuncion_async_aio_paralel"),
+    path('pokemon-mltthr/<int:id_pokemon>/', pokemon_detail_mltthr, name="pokemon_detallefuncion_mltthr"),
 
     #   inicio
     path('', pokemon_list, name="index"),

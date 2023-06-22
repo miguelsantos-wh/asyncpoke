@@ -63,7 +63,7 @@ def pokemon_detail_mltthr(request, id_pokemon):
             for tipo in contexto.get('types'):
                 url = tipo.get('type').get('url')
                 task_idtipo.append(get_idtipo_mltthr(session, url))
-            response_idtipo = await asyncio.gather(*task_idtipo)
+            response_idtipo = [1, 2]
             for response in response_idtipo:
                 idtipos[n] = {'id': response}
                 n += 1
